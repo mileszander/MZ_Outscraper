@@ -1,0 +1,33 @@
+from pymongo import MongoClient
+import bson
+
+# Your MongoDB Atlas connection string
+connection_string = 'mongodb+srv://mzander:America%231@cluster0.3dqr20v.mongodb.net/'
+
+# Connect to your MongoDB Atlas database
+client = MongoClient(connection_string)
+
+# Specify the database to use
+db = client['OutScraper']  # Replace 'your_database_name' with your database name
+
+# Specify the collection to use
+collection = db['Test_data']  
+
+# Performing a query that returns a Cursor
+# cursor = collection.find({"_id": "Whistler's"})
+
+# Convert cursor to a list
+documents = [doc for doc in collection.find({"_id": "Whisler's"})]
+
+# Now `documents` is a list of dictionaries
+# for document in documents:
+#     print(document)
+
+print(documents[0]['range'])
+
+
+
+
+
+
+
